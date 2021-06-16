@@ -1,0 +1,71 @@
+{% extends 'main/base.html'%}{% block styles%} {{ super() }}
+<link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+{% endblock %} {% block content %}
+<div class="container">
+  <div class="profile-wrapper mt-5">
+    <div class="profile-wrapper">
+      <div class="row">
+        <div class="col-md-6 pic-cont">
+          {% if user.profile_pic_path %}
+          <div class="image">
+            <img
+              src="{{url_for('static',filename=user.profile_pic_path)}}"
+              alt=""
+            />
+          </div>
+
+          {%else%}
+          <div class="image">
+            <p>No profile picture</p>
+          </div>
+
+          {% endif %} {% if user ==current_user %}
+          <div class="form mt-5">
+            <form
+              action="{{url_for('main.update_pic',uname=user.username)}}"
+              method="post"
+              enctype="multipart/form-data"
+            >
+              <input type="file" name="photo" class="form-control" required />
+              <button class="btn btn-success mt-3" type="submit">Upload</button>
+            </form>
+          </div>
+
+          {% endif %}
+        </div>
+        <div class="col-md-6 details-cont text-center pt-5">
+          <div class="profile">
+            <h2 class="text-white">{{user.username| capitalize}}</h2>
+
+            {% if user.bio %}
+            <h4 class="text-white">{{user.bio}}</h4>
+            {%else%}
+            <h4 class="text-white">{{user.username| capitalize}} has no bio</h4>
+            {% if user == current_user %} {% endif %} {% endif %}
+            
+            <h4 class="text-white">{{user.currency}}</h4>
+
+            {% if user == current_user %}
+            <a
+              class="btn btn-success"
+              href="{{url_for('main.update_profile',uname=user.username)}}"
+              >Edit profile</a
+            >
+            {% endif %}
+          </div>
+
+          <div class="wallet mt-4">
+            <h3 class="text-white">wallet</h3>
+            <h4 class="text-white">Current amount</h4>
+            <h4 class="text-white">{{wallet.total}} {{user.currency}}</h4>
+
+            <a href="{{url_for('main.transaction')}}" class="btn btn-primary">
+              make transaction</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+</div>
