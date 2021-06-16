@@ -9,7 +9,29 @@
 {% block content %}
 
 <div class="container-fluid m-5">
-  <h3>Hi User</h3>
+  <div class="row">
+    <div class="col-md-4">
+      <a class="action-card bg-success text-white" href="{{url_for('main.conversion')}}">
+        <h3>Make conversion</h3>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a
+        class="action-card bg-danger text-white"
+        href="{{url_for('main.profile',uname=current_user.username)}}"
+      >
+        <h3>Manage account</h3>
+      </a>
+    </div>
+    <div class="col-md-4">
+      <a
+        class="action-card bg-primary text-white"
+        href="{{url_for('main.transaction')}}"
+      >
+        <h3>Make transaction</h3>
+      </a>
+    </div>
+  </div>
 </div>
 
 {% endblock%}
