@@ -65,6 +65,12 @@ def transaction():
 def send_funds():
     
     people = []
+    user_id= current_user._get_current_object().id
+    user_current = User.query.get(user_id)
+
+    transactions=Transaction.query.filter_by(user_id=user_current.id).all()
+    print(transactions)
+
     users = User.query.filter(User.username!=current_user.username)
     for user in users:
         people.append(user.username)
@@ -74,11 +80,7 @@ def send_funds():
         name = request.form.get('user')
         
         amount = request.form.get('amount')
-        user_id= current_user._get_current_object().id
-     
-       
         
-        user_current = User.query.get(user_id)
       
         wallet = Wallet.query.get(user_current.id)
         first_amount = (wallet.total - int(amount))
@@ -187,11 +189,6 @@ def debit():
         return redirect(url_for('main.profile',uname=user_current.username))
  
     return render_template('main/debit.html',form=form)
-
-
-
-
-
 
 
 @main.route('/user/<uname>')
