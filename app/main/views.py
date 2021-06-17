@@ -249,3 +249,13 @@ def update_pic(uname):
         user.profile_pic_path = path
         db.session.commit()
     return redirect(url_for('main.profile',uname=uname))
+
+@main.route('/view_transactions')
+@login_required
+def view_transactions():
+    user_id= current_user._get_current_object().id
+    user_current = User.query.get(user_id)
+
+    transaction_list=Transaction.query.filter_by(user_id=user_current.id).all()
+
+    return render_template("profile/transactions.html", transaction_list = transaction_list)

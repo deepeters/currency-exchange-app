@@ -1,0 +1,15 @@
+{% macro displayTransactions(transaction_list)%} 
+    {% for transaction in transaction_list%}
+    
+        <div class="card m-2">
+        <div class="card-body">
+            <p class="card-text">Time: {{transaction.time}}</p>
+            <div>
+                <span class="user_id transaction-type">{{transaction.type}}</span>
+                <span class="user_id transaction-amount">{{transaction.amount}}</span>
+            </div>
+        </div>
+        </div>
+    
+    {% endfor %}
+{% endmacro %}

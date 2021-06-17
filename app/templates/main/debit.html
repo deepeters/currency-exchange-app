@@ -8,11 +8,11 @@
 <!-- Content block -->
 {% block content %}
 
-<div class="container m-5">
+<div class="container m-5 post-form">
   <div class="transaction">
-    <h4>Debit Account</h4>
+    <h4>Debit Account</h4> <hr>
 
-    <div class="form post-form">{{wtf.quick_form(form)}}</div>
+    <div class="form">{{wtf.quick_form(form)}}</div>
   </div>
 </div>
 

@@ -37,7 +37,6 @@
 }
 
 .pic-cont {
-  background-color: rgb(109, 128, 0);
   height: 600px;
 }
 .details-cont {
@@ -46,7 +45,6 @@
 }
   
 .image {
-  background-color: green;
   height: 400px;
   margin: 20px 0px;
   display: flex;
@@ -56,6 +54,7 @@
 .image img {
   height: 100%;
   object-fit: cover;
+  border-radius: 50%;
   /* margin: 0px auto; */
 }
   
@@ -83,7 +82,7 @@ body {
   width: 100%;
   margin-top: 5px 0px 60px 0px;
   font-family: "Roboto", sans-serif;
-  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 *::-webkit-scrollbar {
@@ -305,7 +304,7 @@ textarea {
   color: rgb(9, 235, 243);
 }
 .profile-container {
-  height: 100%;
+  height: 800px;
   margin: 10px auto;
   border-radius: 10px;
   padding: 20px;
@@ -318,7 +317,21 @@ textarea {
 }
 .home-container {
   height: 350px;
-  width: 100%;
+  width: 90%;
+  margin: 10px auto;
+  border-radius: 10px;
+  padding: 20px;
+
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(10, 10, 10, 0.37);
+  backdrop-filter: blur(3px);
+  border-radius: 10px;
+  -webkit-backdrop-filter: blur(3px);
+}
+
+.transaction-container {
+  height: 100%;
+  width: 90%;
   margin: 10px auto;
   border-radius: 10px;
   padding: 20px;
@@ -376,6 +389,15 @@ textarea {
 
 .error_container p a {
   color: green;
+}
+h4 {
+  color: #fff;
+}
+.transaction-type {
+  color: red;
+}
+.transaction-amount{
+  color: rgb(25, 230, 25);
 }
 
   

@@ -1,0 +1,7 @@
+{% extends 'main/base.html' %} {% import 'main/macros.html' as macro%} {% block
+    content %}
+    <div class="container transaction-container">
+        {{macro.displayTransactions(transaction_list)}}
+    </div>
+    {% endblock %}
+    
