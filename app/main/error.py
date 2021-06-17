@@ -6,4 +6,4 @@ def errors(error):
     '''
     Function to render the 404 error page
     '''
-    return render_template('main/errors.html'),404
+    return render_template('main/error_page.html'),404
