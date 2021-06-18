@@ -4,7 +4,7 @@
 A Python-Flask Application that implements a currency exchange function using a currency conversion API that updates regularly. 
 
 Watch Live Demo:
-[![Watch the video](photos/home.png)](https://youtu.be/pzUS_yKeVxI)
+[![Watch the video]](https://youtu.be/pzUS_yKeVxI)
 
 ### Setup Instructions
 
