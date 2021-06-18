@@ -73,6 +73,28 @@ Transactions are displayed on the transactions page depending on the user where 
 
 #### Deployment
 
+Deployment
+Deployment has been achieved through Heroku. Heroku is a cloud deployment platform that is able to implement both the application dependencies and the database.
+1. pip install gunicorn
+2. pip freeze > requirements.txt
+3. touch Procfile and write the code: 
+      web: gunicorn manage:app into the file.
+4. heroku login
+5. heroku create currency-exchange-application
+6. heroku config:set MOVIE_API_KEY=<YOUR MOVIE API>
+7. heroku config:set SECRET_KEY=<YOUR SECRET KEY>
+8. heroku addons:create heroku-postgresql
+9. Alter config.py with:
+	   class ProdConfig(Config):
+    	SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
+10. Alter manage.py
+	   From: app = create_app(‘development’)
+	   To: app = create_app(‘production’)
+11. pip freeze > requirements.txt
+12. Push to App Heroku
+	   git push heroku master
+13. Deploy Database
+	   heroku run python3 manage.py db upgrade
 
 
 ### Author: [DENNIS NJENGA](https://github.com/deepeters)
@@ -82,14 +104,15 @@ Transactions are displayed on the transactions page depending on the user where 
          Phone: +254 715 144831
 
 ### Technology Used
-1. HTML
-2. CSS
-3. Python
+1. HTML5
+2. CSS3
+3. Python3
 4. PostgreSQL
 
 ### Frameworks Used
 1. Git
 2. Bootstrap
 3. Flask
+4. Heroku
 
 ### LICENSE: [MIT LICENSE](https://raw.githubusercontent.com/deepeters/currency-exchange-app/master/LICENSE)
