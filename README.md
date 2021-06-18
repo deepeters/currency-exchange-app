@@ -3,7 +3,8 @@
 ### Project Description
 A Python-Flask Application that implements a currency exchange function using a currency conversion API that updates regularly. 
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
+Watch Live Demo:
+[![Watch the video](photos/home.png)](https://youtu.be/pzUS_yKeVxI)
 
 ### Setup Instructions
 
