@@ -70,9 +70,9 @@ Transactions are displayed on the transactions page depending on the user where 
             (4 rows)
 
 
-
 ### Author: [DENNIS NJENGA](https://github.com/deepeters)
 ### Contact Infomation:
+
          Email: dennis95peters@gmail.com
          Phone: +254 715 144831
 
