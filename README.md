@@ -78,23 +78,23 @@ Deployment has been achieved through Heroku. Heroku is a cloud deployment platfo
 1. pip install gunicorn
 2. pip freeze > requirements.txt
 3. touch Procfile and write the code: 
-      web: gunicorn manage:app into the file.
+   * web: gunicorn manage:app into the file.
 4. heroku login
 5. heroku create currency-exchange-application
-6. heroku config:set MOVIE_API_KEY=<YOUR MOVIE API>
-7. heroku config:set SECRET_KEY=<YOUR SECRET KEY>
+6. heroku config:set MOVIE_API_KEY=<'YOUR MOVIE API'>
+7. heroku config:set SECRET_KEY=<'YOUR SECRET KEY'>
 8. heroku addons:create heroku-postgresql
 9. Alter config.py with:
-	   class ProdConfig(Config):
+	* class ProdConfig(Config):
     	SQLALCHEMY_DATABASE_URI = os.environ.get("DATABASE_URL")
 10. Alter manage.py
-	   From: app = create_app(‘development’)
-	   To: app = create_app(‘production’)
+	* From: app = create_app(‘development’)
+	* To: app = create_app(‘production’)
 11. pip freeze > requirements.txt
 12. Push to App Heroku
-	   git push heroku master
+	* git push heroku master
 13. Deploy Database
-	   heroku run python3 manage.py db upgrade
+	* heroku run python3 manage.py db upgrade
 
 
 ### Author: [DENNIS NJENGA](https://github.com/deepeters)
