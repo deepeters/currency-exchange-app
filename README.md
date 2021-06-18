@@ -81,7 +81,7 @@ Deployment has been achieved through Heroku. Heroku is a cloud deployment platfo
    * web: gunicorn manage:app into the file.
 4. heroku login
 5. heroku create currency-exchange-application
-6. heroku config:set MOVIE_API_KEY=<'YOUR MOVIE API'>
+6. heroku config:set API_KEY=<'YOUR MOVIE API'>
 7. heroku config:set SECRET_KEY=<'YOUR SECRET KEY'>
 8. heroku addons:create heroku-postgresql
 9. Alter config.py with:
