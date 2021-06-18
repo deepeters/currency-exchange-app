@@ -3,7 +3,7 @@
 ### Project Description
 A Python-Flask Application that implements a currency exchange function using a currency conversion API that updates regularly. 
 
-<img src="photos/conversion.png">
+[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/vt5fpE0bzSY)
 
 ### Setup Instructions
 
@@ -37,6 +37,7 @@ Activate Virtual Environment: source virtual/bin/activate
 	* ./start.sh
 
 * This website requires that you have data access to internet data.
+<img src="photos/conversion.png">
 
 ### BDD
 #### API
