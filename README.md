@@ -96,6 +96,9 @@ Deployment has been achieved through Heroku. Heroku is a cloud deployment platfo
 13. Deploy Database
 	* heroku run python3 manage.py db upgrade
 
+#### Future Development
+As the business grows, the number of requests is expected to increase on the server. To handle an increased number of requests, the application would need to use another API as the one applied here has a limit on the number of responses and requests it can provide and receive per unit time. The future applied API also needs to update the exchange rates instantly as in the exchange market rather than the 60 minute rate provided in this application.
+
 
 ### Author: [DENNIS NJENGA](https://github.com/deepeters)
 ### Contact Infomation:

@@ -136,10 +136,14 @@ li {
   color: rgb(9, 235, 243);
 }
 .nav-link {
-  display: inline-block;
+  
   justify-content: center;
   align-items: center;
   gap: 10px;
+  margin-left: auto;
+}
+.navbar-nav {
+  margin-left: 50%;
 }
 
 .dropdown-menu {
@@ -321,7 +325,7 @@ textarea {
   -webkit-backdrop-filter: blur(3px);
 }
 .home-container {
-  height: 350px;
+  height: 90%;
   width: 90%;
   margin: 10px auto;
   border-radius: 10px;
