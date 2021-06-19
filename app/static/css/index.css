@@ -105,7 +105,7 @@ body {
   backdrop-filter: blur(2px);
   border-radius: 10px;
   -webkit-backdrop-filter: blur(2px);
-  display: flex;
+  display: inline;
   justify-content: space-between;
 }
 
@@ -136,7 +136,7 @@ li {
   color: rgb(9, 235, 243);
 }
 .nav-link {
-  display: flex;
+  display: inline;
   justify-content: center;
   align-items: center;
   gap: 10px;
