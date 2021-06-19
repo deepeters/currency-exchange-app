@@ -106,6 +106,7 @@ body {
   border-radius: 10px;
   -webkit-backdrop-filter: blur(2px);
   display: inline;
+  float: right;
   justify-content: space-between;
 }
 
@@ -140,6 +141,7 @@ li {
   justify-content: center;
   align-items: center;
   gap: 10px;
+  float: right;
 }
 
 .dropdown-menu {
