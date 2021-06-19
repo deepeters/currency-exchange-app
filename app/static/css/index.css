@@ -108,6 +108,7 @@ body {
   display: flex;
   justify-content: space-between;
 }
+
 li {
   list-style: none;
   color: white;
@@ -148,6 +149,7 @@ li {
   -webkit-backdrop-filter: blur(2px);
   margin-right: 10px;
 }
+
 .nav-link {
   color: white;
   font-size: 22px;
@@ -197,6 +199,7 @@ li {
 .btn-link:first-child {
   border-left: none;
 }
+
 
 .card {
   background: rgba(255, 255, 255, 0.15);
