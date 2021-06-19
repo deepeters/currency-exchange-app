@@ -105,8 +105,7 @@ body {
   backdrop-filter: blur(2px);
   border-radius: 10px;
   -webkit-backdrop-filter: blur(2px);
-  display: inline;
-  float: right;
+  display: inline-block;
   justify-content: space-between;
 }
 
@@ -137,11 +136,10 @@ li {
   color: rgb(9, 235, 243);
 }
 .nav-link {
-  display: inline;
+  display: inline-block;
   justify-content: center;
   align-items: center;
   gap: 10px;
-  float: right;
 }
 
 .dropdown-menu {
