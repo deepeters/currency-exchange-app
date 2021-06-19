@@ -5,27 +5,28 @@
 {% block styles%} {{ super() }}
 <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
 {% endblock %}
+
 <!-- Content block -->
 {% block content %}
 
 <div class="container-fluid m-5 home-container">
   <div class="row">
-    <div class="col-md-4 action-card bg-success">
-      <a class=" text-white" href="{{url_for('main.conversion')}}">
+    <div class="col-md-4 ">
+      <a class="action-card bg-success text-white" href="{{url_for('main.conversion')}}">
         <h3>Make conversion</h3>
       </a>
     </div>
-    <div class="col-md-4 action-card bg-danger">
+    <div class="col-md-4 ">
       <a
-        class=" text-white"
+        class="action-card bg-danger text-white"
         href="{{url_for('main.profile',uname=current_user.username)}}"
       >
         <h3>Manage account</h3>
       </a>
     </div>
-    <div class="col-md-4 action-card bg-primary">
+    <div class="col-md-4 ">
       <a
-        class=" text-white"
+        class="action-card bg-primary text-white"
         href="{{url_for('main.transaction')}}"
       >
         <h3>Make transaction</h3>

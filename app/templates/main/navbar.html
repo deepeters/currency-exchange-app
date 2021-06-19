@@ -9,33 +9,33 @@
       aria-expanded="false"
       aria-label="Toggle navigation"
     >
-      <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav  ml-auto">
        
         {% if current_user.is_authenticated %}
-        <li class="nav-item nav-link"> Hi {{current_user.username}}</li>
-         <a class="nav-item nav-link active" href="/">Home </a>
-        
-  
-        <a
-          class="nav-item nav-link"
-          href="{{url_for('main.profile',uname=current_user.username)}}"
-          >Profile</a
-        >
 
-        <a
-          class="nav-item nav-link"
-          href="{{url_for('main.view_transactions')}}"
-          >Transactions</a
-        >
-  
-        <a class="nav-item nav-link" href="{{url_for('auth.logout')}}"
-          >Sign out</a
-        >
+          <li class="nav-item nav-link"> Hi {{current_user.username}}</li>
+          <a class="nav-item nav-link active" href="/">Home </a>
+      
+          <a
+            class="nav-item nav-link"
+            href="{{url_for('main.profile',uname=current_user.username)}}"
+            >Profile</a
+          >
+
+          <a
+            class="nav-item nav-link"
+            href="{{url_for('main.view_transactions')}}"
+            >Transactions</a
+          >
+    
+          <a class="nav-item nav-link" href="{{url_for('auth.logout')}}"
+            >Sign out</a
+          >
+
         {% else %}
-        <a class="nav-item nav-link" href="{{url_for('auth.login')}}">Sign in</a>
+          <a class="nav-item nav-link" href="{{url_for('auth.login')}}">Sign in</a>
         {%endif%}
       </div>
     </div>

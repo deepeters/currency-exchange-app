@@ -1,7 +1,11 @@
-{% extends 'main/base.html' %} {% import 'main/macros.html' as macro%} {% block
-    content %}
+{% extends 'main/base.html' %} 
+{% import 'main/macros.html' as macro%} 
+{% block content %}
+    {% block styles%} {{ super() }}
+    <link rel="stylesheet" href="{{url_for('static',filename='css/index.css')}}" />
+    {% endblock %}
     <div class="container transaction-container">
         {{macro.displayTransactions(transaction_list)}}
     </div>
-    {% endblock %}
+{% endblock %}
     

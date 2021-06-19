@@ -96,6 +96,7 @@ body {
   border: transparent;
 }
 
+
 .navbar {
   width: 100%;
   padding: 5px 15px;
@@ -110,6 +111,7 @@ body {
 li {
   list-style: none;
   color: white;
+  
 }
 .nav-logo {
   display: flex;
@@ -132,11 +134,11 @@ li {
 .navbar-brand:hover {
   color: rgb(9, 235, 243);
 }
-.nav-links {
+.nav-link {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 2px;
+  gap: 10px;
 }
 
 .dropdown-menu {
@@ -394,7 +396,7 @@ h4 {
   color: #fff;
 }
 .transaction-type {
-  color: red;
+  color: rgb(255, 0, 0);
 }
 .transaction-amount{
   color: rgb(25, 230, 25);
