@@ -7,8 +7,8 @@ from app.models import User, Wallet, Transaction
 
 
 # Creating app instance
-#app = create_app('development')
-app = create_app('production')
+app = create_app('development')
+#app = create_app('production')
 # app = create_app('test')
 
 manager = Manager(app)

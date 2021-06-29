@@ -39,7 +39,7 @@ class User(UserMixin,db.Model):
 class Wallet(db.Model):
     __tablename__= "wallets"
     id = db.Column(db.Integer,primary_key = True)
-    total = db.Column(db.Integer)
+    total = db.Column(db.Float)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='SET NULL'),nullable = True)
     transaction = db.relationship('Transaction',backref='wallets',lazy='dynamic') 
     
@@ -51,7 +51,7 @@ class Transaction(db.Model):
     __tablename__="transactions"
     id = db.Column(db.Integer,primary_key = True)
     type = db.Column(db.String(255))
-    amount = db.Column(db.Integer)
+    amount = db.Column(db.Float)
     time=db.Column(db.DateTime(),default=datetime.utcnow)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id',ondelete='SET NULL'),nullable = True)
     wallet_id = db.Column(db.Integer, db.ForeignKey('wallets.id',ondelete='SET NULL'),nullable = True)

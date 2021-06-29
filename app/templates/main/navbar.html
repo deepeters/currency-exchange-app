@@ -13,7 +13,7 @@
         {% if current_user.is_authenticated %}
 
           <a 
-            class="nav-item nav-link" 
+            class="nav-item nav-link p-0" 
             href="{{url_for('main.profile',uname=current_user.username)}}">
             Hi {{current_user.username}}
           </a>

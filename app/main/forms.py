@@ -1,5 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField,TextAreaField,SelectField,SubmitField,IntegerField
+from wtforms.fields.core import DecimalField
 from wtforms.validators import Required
 from ..requests import get_currencies
 
@@ -7,7 +8,7 @@ CURRENCY_CHOICES = [('ALL','ALL'),('XCD','XCD'),('EUR','EUR'),('BBD','BBD'),('BT
 
 class ConversionForm(FlaskForm):
 
-    amount = IntegerField('Amount',validators=[Required()])
+    amount = DecimalField('Amount',validators=[Required()])
     fromCurr = SelectField('Click to select your currency',choices=CURRENCY_CHOICES,validators=[Required()])
     toCurr = SelectField('Click to select your currency',choices=CURRENCY_CHOICES,validators=[Required()])
     submit = SubmitField('Submit')
@@ -21,7 +22,7 @@ class UpdateProfile(FlaskForm):
     
     
 class TransactForm(FlaskForm):
-    amount = IntegerField('Amount',validators=[Required()])
+    amount = DecimalField('Amount',validators=[Required()])
     currency = SelectField('Click to select your currency',choices=CURRENCY_CHOICES,validators=[Required()])
     submit = SubmitField('Submit')
     

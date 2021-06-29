@@ -1,3 +1,4 @@
+#from decimal import Decimal
 from flask import render_template,request,redirect,url_for,abort,flash
 from . import main
 from ..requests import get_currencies,get_currency_rates
@@ -36,13 +37,13 @@ def conversion():
     if form.validate_on_submit():   
    
         amount = form.amount.data
-        fromCurr = form.fromCurr.data
-        toCurr = form.toCurr.data
+        fromCurr = form.fromCurr.data #KES
+        toCurr = form.toCurr.data   #USD
          
         rates = get_currency_rates(fromCurr,toCurr)
         rate = rates.get(f"{fromCurr}_{toCurr}")
        
-        result = (int(amount) * rate)
+        result = (float(amount) * rate)
         print(rate)
         print(result)
         
@@ -88,7 +89,7 @@ def send_funds():
         db.session.commit()
        
         
-        transaction_amount = int(amount)
+        transaction_amount = float(amount)
         wallet = Wallet.query.get(user_current.id)
         transaction = Transaction(type="debit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id)
         db.session.add(transaction)
@@ -99,13 +100,13 @@ def send_funds():
         wallet = Wallet.query.get(user_receiver.id)
         rates = get_currency_rates(user_current.currency,user_receiver.currency)
         rate = rates.get(f"{user_current.currency}_{user_receiver.currency}")
-        second_amount = (rate * int(amount)) + wallet.total
+        second_amount = (rate * float(amount)) + wallet.total
         wallet.total = second_amount
         db.session.commit()
        
        
         wallet = Wallet.query.get(user_receiver.id)
-        transaction = Transaction( type="credit",amount = (rate * int(amount)),user_id= user_receiver.id,wallet_id=wallet.id)
+        transaction = Transaction( type="credit",amount = (rate * float(amount)),user_id= user_receiver.id,wallet_id=wallet.id)
         db.session.add(transaction)
         db.session.commit()
         
@@ -222,7 +223,7 @@ def update_profile(uname):
         rates = get_currency_rates(user.currency,form.currency.data)
         rate = rates.get(f"{user.currency}_{form.currency.data}")
        
-        result = (int(amount) * rate)
+        result = (float(amount) * rate)
         wallet.total = result
         db.session.commit()
                 
