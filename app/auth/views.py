@@ -29,7 +29,7 @@ def register():
         wallet = Wallet(total = 1000.0000000,user_id=user.id)
         db.session.add(wallet)
         db.session.commit()
-        transaction = Transaction(type="credit",amount=1000.0000000,wallet_id=wallet.id,user_id=user.id)
+        transaction = Transaction(type="credit",amount=1000.0000000,wallet_id=wallet.id,user_id=user.id,currency="KES")
         db.session.add(transaction)
         db.session.commit()
         return redirect(url_for('auth.login'))

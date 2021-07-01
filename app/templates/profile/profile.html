@@ -59,6 +59,15 @@
             <h4 class="text-white">Current amount</h4>
             <h4 class="text-white">{{wallet.total}} {{user.currency}}</h4>
 
+            {% for message in get_flashed_messages() %}
+            <div class="alert alert-danger">
+              <button type="button" class="close" data-dismiss="alert">
+                &times;
+              </button>
+              {{ message }}
+            </div>
+            {% endfor %}            
+
             <a href="{{url_for('main.transaction')}}" class="btn btn-primary">
               make transaction</a
             >

@@ -77,13 +77,21 @@ def send_funds():
         people.append(user.username)
   
     
-    if request.method == "POST":
+    if request.method == "POST":    
+        user_id= current_user._get_current_object().id
+        user_current = User.query.get(user_id)
+        
+        wallet = Wallet.query.filter_by(user_id = user_current.id).first()
+        if wallet.total < 1:
+            flash( "You have inssuffient funds")
+            return redirect(url_for('main.profile',uname=user_current.username))
+       
+        
         name = request.form.get('user')
         
         amount = request.form.get('amount')
-        
       
-        wallet = Wallet.query.get(user_current.id)
+        #wallet = Wallet.query.get(user_current.id)
         first_amount = (wallet.total - int(amount))
         wallet.total = first_amount
         db.session.commit()
@@ -91,7 +99,7 @@ def send_funds():
         
         transaction_amount = float(amount)
         wallet = Wallet.query.get(user_current.id)
-        transaction = Transaction(type="debit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id)
+        transaction = Transaction(type="debit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id,currency=user_current.currency)
         db.session.add(transaction)
         db.session.commit()
        
@@ -106,7 +114,7 @@ def send_funds():
        
        
         wallet = Wallet.query.get(user_receiver.id)
-        transaction = Transaction( type="credit",amount = (rate * float(amount)),user_id= user_receiver.id,wallet_id=wallet.id)
+        transaction = Transaction( type="credit",amount = (rate * float(amount)),user_id= user_receiver.id,wallet_id=wallet.id,currency=user_receiver.currency)
         db.session.add(transaction)
         db.session.commit()
         
@@ -144,7 +152,7 @@ def credit():
         
         transaction_amount = int(amount)
         wallet = Wallet.query.get(user_current.id)
-        transaction = Transaction(type="credit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id)
+        transaction = Transaction(type="credit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id,currency=user_current.currency)
         db.session.add(transaction)
         db.session.commit()
       
@@ -182,7 +190,7 @@ def debit():
        
         transaction_amount = int(amount)
         wallet = Wallet.query.get(user_current.id)
-        transaction = Transaction(type="debit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id)
+        transaction = Transaction(type="debit",amount=transaction_amount,user_id=user_current.id,wallet_id=wallet.id,currency=user_current.currency)
         db.session.add(transaction)
         db.session.commit()
       
